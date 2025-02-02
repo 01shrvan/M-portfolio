@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { Menu, X } from "lucide-react"
 import { Sidebar } from "./Sidebar"
 
 export const navigationItems = [
@@ -27,9 +28,16 @@ export function Navbar() {
   }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40">
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-40"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="mx-4 mt-4">
-        <nav className={`rounded-full bg-gray-100 transition-shadow ${isScrolled ? "shadow-md" : ""}`}>
+        <nav
+          className={`rounded-full bg-gray-50 backdrop-blur-md transition-all duration-300 ${isScrolled ? "shadow-lg" : ""}`}
+        >
           <div className="container mx-auto px-4">
             <div className="flex h-16 items-center justify-between">
               <Link href="/" className="flex items-center space-x-2">
@@ -43,49 +51,40 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`text-sm font-medium transition-colors hover:text-primary ${
+                    className={`relative text-sm font-medium transition-colors hover:text-primary ${
                       pathname === item.href ? "text-primary" : "text-muted-foreground"
                     }`}
                   >
                     {item.name}
+                    {pathname === item.href && (
+                      <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary" layoutId="underline" />
+                    )}
                   </Link>
                 ))}
-                <Button variant="outline" size="sm">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-4 py-2 rounded-full bg-primary text-white text-sm font-medium transition-colors hover:bg-primary/90"
+                >
                   Contact Me
-                </Button>
+                </motion.button>
               </div>
 
-              <Button
-                variant="ghost"
-                size="icon"
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className="md:hidden relative w-10 h-10 focus:outline-none"
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               >
-                <div className="absolute w-5 transform transition-all duration-300 ease-in-out">
-                  <span
-                    className={`absolute h-0.5 w-5 bg-current transform transition-all duration-300 ease-in-out ${
-                      isSidebarOpen ? "rotate-45 delay-200" : "-translate-y-1.5"
-                    }`}
-                  ></span>
-                  <span
-                    className={`absolute h-0.5 bg-current transform transition-all duration-300 ease-in-out ${
-                      isSidebarOpen ? "w-0 opacity-50" : "w-5 delay-200 opacity-100"
-                    }`}
-                  ></span>
-                  <span
-                    className={`absolute h-0.5 w-5 bg-current transform transition-all duration-300 ease-in-out ${
-                      isSidebarOpen ? "-rotate-45 delay-200" : "translate-y-1.5"
-                    }`}
-                  ></span>
-                </div>
-              </Button>
+                {isSidebarOpen ? <X className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6 text-primary" />}
+              </motion.button>
             </div>
           </div>
         </nav>
       </div>
 
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-    </header>
+    </motion.header>
   )
 }
 
