@@ -36,13 +36,13 @@ export function Navbar() {
     >
       <div className="mx-4 mt-4">
         <nav
-          className={`rounded-full bg-gray-50 backdrop-blur-md transition-all duration-300 ${isScrolled ? "shadow-lg" : ""}`}
+          className={`rounded-full bg-gray-100 backdrop-blur-md transition-all duration-300 ${isScrolled ? "shadow-lg" : ""}`}
         >
           <div className="container mx-auto px-4">
             <div className="flex h-16 items-center justify-between">
               <Link href="/" className="flex items-center space-x-2">
-                <span className="text-2xl font-bold">
-                  .<span className="text-primary">shrvan</span>
+                <span className="text-2xl font-bold ">
+                  01<span className="text-primary">shrvan</span>
                 </span>
               </Link>
 
