@@ -29,7 +29,7 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-40"
+      className="fixed top-0 left-0 right-0 z-40 bg-white"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -41,7 +41,7 @@ export function Navbar() {
           <div className="container mx-auto px-4">
             <div className="flex h-16 items-center justify-between">
               <Link href="/" className="flex items-center space-x-2">
-                <span className="text-2xl font-bold ">
+                <span className="text-2xl font-bold">
                   01<span className="text-primary">shrvan</span>
                 </span>
               </Link>
@@ -51,9 +51,8 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`relative text-sm font-medium transition-colors hover:text-primary ${
-                      pathname === item.href ? "text-primary" : "text-muted-foreground"
-                    }`}
+                    className={`relative text-sm font-medium transition-colors hover:text-primary ${pathname === item.href ? "text-primary" : "text-muted-foreground"
+                      }`}
                   >
                     {item.name}
                     {pathname === item.href && (
@@ -87,4 +86,3 @@ export function Navbar() {
     </motion.header>
   )
 }
-
