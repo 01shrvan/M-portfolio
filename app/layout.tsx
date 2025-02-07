@@ -1,39 +1,46 @@
-// app/metadata.ts
-import type { Metadata } from "next"
+"use client"
 
-export const metadata: Metadata = {
-  title: "Shrvan | Web Developer & Designer",
-  description: "Building sleek, functional websites with a focus on design and performance.",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://www.01shrvan.tech/",
-    siteName: "Shrvan's Portfolio",
-    title: "Shrvan | Web Developer & Designer",
-    description: "Clean code, smooth interfaces, and well-crafted digital experiences.",
-    images: [
-      {
-        url: "https://www.yourdomain.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Shrvan's Portfolio Preview",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Shrvan | Web Developer & Designer",
-    description: "Minimal, fast, and functional web solutions.",
-    images: ["https://www.yourdomain.com/twitter-image.jpg"],
-    creator: "@yourtwitterhandle",
-  },
-  keywords: ["web development", "portfolio", "React", "Next.js", "UI/UX", "frontend"],
-  authors: [{ name: "Shrvan", url: "https://www.01shrvan.tech/" }],
-  creator: "Shrvan",
-  publisher: "Shrvan",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+import { Geist, Azeret_Mono as Geist_Mono } from "next/font/google"
+import "./globals.css"
+import { Navbar } from "./components/Navbar"
+import type React from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import { usePathname } from "next/navigation"
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+})
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+})
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  const pathname = usePathname()
+
+  return (
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar />
+        <AnimatePresence mode="wait">
+          <motion.main
+            key={pathname}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="pt-24 min-h-screen"
+          >
+            {children}
+          </motion.main>
+        </AnimatePresence>
+      </body>
+    </html>
+  )
 }
