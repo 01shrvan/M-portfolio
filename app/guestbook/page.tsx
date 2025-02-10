@@ -9,8 +9,10 @@ import prisma from "../lib/db";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Suspense } from "react";
 import { GuestBookFormLoading, LoadingMessages } from "@/components/ui/LoadingState";
+import { unstable_noStore as noStore } from "next/cache"
 
 async function getGuestBookEntry() {
+    noStore();
     try {
         const data = await prisma.guestBookEntry.findMany({
             include: {
