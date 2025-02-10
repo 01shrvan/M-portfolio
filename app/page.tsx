@@ -1,5 +1,11 @@
+import { Hero } from "./components/Hero";
+import { SectionTwo } from "./components/Sectiontwo";
+
 export default function Home() {
   return (
-    <h1>hello world</h1>
+    <div className="max-w-7xl w-full px-4 md:px-8 mx:auto ">
+      <Hero />
+      <SectionTwo />
+    </div>
   );
 }
