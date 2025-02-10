@@ -3,7 +3,7 @@ import runner from "../../public/runner.png";
 
 export function Hero() {
     return (
-        <div className="container mx-10 pt-5">
+        <div className="container mx-auto px-4 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div className="col-span-1 lg:col-span-2 h-full bg-gray-100 min-h-[500px] lg:min-h-[300px] rounded-2xl p-8">
                     <h1 className="text-4xl lg:text-6xl font-medium">Hey, I’m Shrvan</h1>
@@ -26,6 +26,7 @@ export function Hero() {
                         ></span>
                     </a>
                 </div>
+
                 <Image
                     src={runner || "/placeholder.svg"}
                     alt="illustration"

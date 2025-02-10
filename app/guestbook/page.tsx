@@ -86,7 +86,7 @@ async function GuestBookEntries() {
                     </p>
                     <p className="text-muted-foreground mt-1">{entry.message}</p>
                     <p className="text-xs text-muted-foreground mt-1">
-                        {new Date(entry.craetedAt).toLocaleDateString("en-US", {
+                        {new Date(entry.createdAt).toLocaleDateString("en-US", {
                             year: "numeric",
                             month: "long",
                             day: "numeric",
@@ -110,7 +110,7 @@ async function GuestBookForm() {
         <div className="flex justify-between gap-4 flex-col md:flex-row">
             <Input type="text" placeholder="Your Message..." disabled />
             <RegisterLink>
-                <Button>Sign in to comment</Button>
+                <Button className="w-full">Sign in to comment</Button>
             </RegisterLink>
         </div>
     );
