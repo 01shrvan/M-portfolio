@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "https://01shrvan.tech",
     images: [
       {
-        url: "https://01shrvan.tech/Gamestation.svg",
+        url: "https://01shrvan.tech/waiting.png",
         width: 800,
         height: 418,
         alt: "Shrvan Portfolio",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shrvan | Portfolio",
     description: "Explore my web development journey, projects, and technical expertise.",
-    images: ["https://01shrvan.tech/Gamestation.svg"],
+    images: ["https://01shrvan.tech/waiting.png"],
   },
 };
 
