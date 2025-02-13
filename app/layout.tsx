@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     url: "https://01shrvan.tech",
     images: [
       {
-        url: "https://01shrvan.tech/gamestation.svg",
-        width: 800, 
+        url: "https://01shrvan.tech/Gamestation.svg",
+        width: 800,
         height: 450,
         alt: "Shrvan Portfolio",
       },
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shrvan | Portfolio",
     description: "Explore my web development journey, projects, and technical expertise.",
-    images: ["https://01shrvan.tech/gamestation.svg"],
+    images: ["https://01shrvan.tech/Gamestation.svg"],
   },
 };
 
 const SMonogram = () => (
   <svg
-    width="48" 
+    width="48"
     height="48"
     viewBox="0 0 100 100"
     fill="none"
@@ -42,7 +42,7 @@ const SMonogram = () => (
     <path
       d="M20 30C20 20 30 10 40 10H60C70 10 80 20 80 30C80 40 70 50 60 50H40C30 50 20 60 20 70C20 80 30 90 40 90H60C70 90 80 80 80 70"
       stroke="black"
-      strokeWidth="8" 
+      strokeWidth="8"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
