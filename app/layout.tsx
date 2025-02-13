@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       {
         url: "https://01shrvan.tech/Gamestation.svg",
         width: 800,
-        height: 450,
+        height: 418,
         alt: "Shrvan Portfolio",
       },
     ],
