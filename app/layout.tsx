@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     title: "Shrvan | Portfolio",
     description: "Explore my web development journey, projects, and technical expertise.",
     type: "website",
-    url: "https://your-portfolio-url.com",
+    url: "https://01shrvan.tech",
     images: [
       {
-        url: "https://your-portfolio-url.com/og-image.jpg",
+        url: "https://01shrvan.tech/gamestation.png",
         width: 1200,
         height: 630,
         alt: "Shrvan Portfolio",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shrvan | Portfolio",
     description: "Explore my web development journey, projects, and technical expertise.",
-    images: ["https://your-portfolio-url.com/og-image.jpg"],
+    images: ["https://01shrvan.tech/gamestation.png"],
   },
 };
 
