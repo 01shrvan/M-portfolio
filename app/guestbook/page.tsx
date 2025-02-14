@@ -11,6 +11,8 @@ import { Suspense } from "react";
 import { GuestBookFormLoading, LoadingMessages } from "@/components/ui/LoadingState";
 import { unstable_noStore as noStore } from "next/cache"
 
+export const dynamic = "force-dynamic";
+
 async function getGuestBookEntry() {
     noStore();
     try {
