@@ -1,10 +1,10 @@
 "use client"
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { format } from 'date-fns';
-import { Calendar, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { GalleryItem } from '@/app/lib/galleryItem';
 
 interface GalleryModalProps {
@@ -30,7 +30,7 @@ export function GalleryModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-6xl w-[95vw] p-0 h-[90vh] overflow-hidden" >
+            <DialogContent className="max-w-6xl w-[95vw] p-0 h-[90vh] overflow-hidden">
                 <div className="grid md:grid-cols-2 h-full">
                     <div className="relative bg-black flex items-center">
                         {hasPrev && (
@@ -67,12 +67,7 @@ export function GalleryModal({
                         )}
                     </div>
                     <div className="p-6 overflow-y-auto bg-background">
-                        <div className="flex items-start justify-between">
-                            <h2 className="text-2xl font-semibold">{item.title}</h2>
-                            <DialogClose className="p-2 hover:bg-secondary rounded-full">
-                                <X className="w-5 h-5" />
-                            </DialogClose>
-                        </div>
+                        <h2 className="text-2xl font-semibold">{item.title}</h2>
                         <div className="flex items-center gap-2 mt-3 text-muted-foreground">
                             <Calendar className="w-4 h-4" />
                             <span className="text-sm">
@@ -89,5 +84,4 @@ export function GalleryModal({
             </DialogContent>
         </Dialog>
     );
-}
-
+}   
