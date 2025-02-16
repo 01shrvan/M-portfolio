@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://01shrvan.tech'),
   openGraph: {
     title: "Shrvan | Portfolio",
-    description: "Explore my web development journey, projects, and technical expertise.",
+    description: "Explore my web development journey, projects and technical expertise.",
     type: "website",
     url: "https://01shrvan.tech",
     siteName: "Shrvan Portfolio",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Shrvan | Portfolio",
-    description: "Explore my web development journey, projects, and technical expertise.",
+    description: "Explore my web development journey, projects and technical expertise.",
     images: {
       url: "https://01shrvan.tech/waiting.png",
       alt: "Shrvan Portfolio - Web Developer",
