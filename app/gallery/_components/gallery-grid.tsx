@@ -35,42 +35,34 @@ export function GalleryGrid({ items }: GalleryGridProps) {
 
     return (
         <>
-            <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-                {items.map((item, index) => {
-                    const aspectRatio = item.imageAspect || 1;
-                    return (
-                        <div
-                            key={item._id}
-                            className="break-inside-avoid group cursor-pointer"
-                            onClick={() => handleItemClick(item, index)}
-                        >
-                            <div
-                                className="relative overflow-hidden rounded-xl"
-                                style={{
-                                    paddingBottom: `${(1 / aspectRatio) * 100}%`
-                                }}
-                            >
-                                <Image
-                                    src={item.imageUrl}
-                                    alt={item.title}
-                                    fill
-                                    className="object-cover transition-all duration-300 group-hover:scale-105"
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <div className="absolute bottom-0 p-4 w-full">
-                                        <h3 className="text-white font-medium text-lg line-clamp-2">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-white/80 text-sm mt-1">
-                                            {format(new Date(item.date), 'MMMM d, yyyy')}
-                                        </p>
-                                    </div>
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+                {items.map((item, index) => (
+                    <div
+                        key={item._id}
+                        className="relative break-inside-avoid block w-full mb-4 cursor-pointer group"
+                        onClick={() => handleItemClick(item, index)}
+                    >
+                        <div className="relative rounded-xl overflow-hidden">
+                            <Image
+                                src={item.imageUrl}
+                                alt={item.title}
+                                width={800}
+                                height={item.imageAspect ? 800 / item.imageAspect : 800}
+                                className="w-full h-auto object-cover transition-all duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="absolute bottom-0 p-4 w-full">
+                                    <h3 className="text-white font-medium text-lg line-clamp-2">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-white/80 text-sm mt-1">
+                                        {format(new Date(item.date), 'MMMM d, yyyy')}
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    );
-                })}
+                    </div>
+                ))}
             </div>
 
             <GalleryModal
