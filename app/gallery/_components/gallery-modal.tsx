@@ -30,9 +30,10 @@ export function GalleryModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-6xl w-[95vw] p-0 h-[90vh] overflow-hidden">
+            <DialogContent className="max-w-6xl w-[95vw] h-[90vh] p-0 overflow-hidden">
                 <div className="grid md:grid-cols-2 h-full">
-                    <div className="relative bg-black flex items-center">
+                    {/* Image Section */}
+                    <div className="relative bg-black flex items-center h-[40vh] md:h-full">
                         {hasPrev && (
                             <button
                                 onClick={(e) => {
@@ -66,7 +67,9 @@ export function GalleryModal({
                             </button>
                         )}
                     </div>
-                    <div className="p-6 overflow-y-auto bg-background">
+
+                    {/* Description Section */}
+                    <div className="p-6 bg-background overflow-y-auto h-[50vh] md:h-full">
                         <h2 className="text-2xl font-semibold">{item.title}</h2>
                         <div className="flex items-center gap-2 mt-3 text-muted-foreground">
                             <Calendar className="w-4 h-4" />
@@ -84,4 +87,4 @@ export function GalleryModal({
             </DialogContent>
         </Dialog>
     );
-}   
+}
