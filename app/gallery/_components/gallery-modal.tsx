@@ -69,18 +69,22 @@ export function GalleryModal({
                     </div>
 
                     {/* Description Section */}
-                    <div className="p-6 bg-background overflow-y-auto h-[50vh] md:h-full">
-                        <h2 className="text-2xl font-semibold">{item.title}</h2>
-                        <div className="flex items-center gap-2 mt-3 text-muted-foreground">
-                            <Calendar className="w-4 h-4" />
-                            <span className="text-sm">
-                                {format(new Date(item.date), "MMMM d, yyyy")}
-                            </span>
-                        </div>
-                        <div className="mt-6 prose dark:prose-invert max-w-none">
-                            <p className="leading-relaxed whitespace-pre-line">
-                                {item.story}
-                            </p>
+                    <div className="relative h-[50vh] md:h-full">
+                        <div className="absolute inset-0 overflow-y-auto">
+                            <div className="p-6">
+                                <h2 className="text-2xl font-semibold">{item.title}</h2>
+                                <div className="flex items-center gap-2 mt-3 text-muted-foreground">
+                                    <Calendar className="w-4 h-4" />
+                                    <span className="text-sm">
+                                        {format(new Date(item.date), "MMMM d, yyyy")}
+                                    </span>
+                                </div>
+                                <div className="mt-6 prose dark:prose-invert max-w-none">
+                                    <p className="leading-relaxed whitespace-pre-line">
+                                        {item.story}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
