@@ -22,11 +22,11 @@ export function ExperienceSection() {
                             <p className="text-lg text-gray-700">
                                 I work as a <strong>Web Developer & UI/UX Designer</strong> at 
                                 <span className="text-primary font-semibold"> DreamSkrin</span>, crafting seamless digital experiences 
-                                through modern web technologies and intuitive design.
+                                through modern web technologies and intuitive design
                             </p>
                             <p className="text-lg text-gray-700 mt-4">
                                 My journey includes freelance work, open-source contributions, and professional collaborations, 
-                                refining my expertise in building interactive and scalable web applications.
+                                refining my expertise in building interactive and scalable web applications
                             </p>
                         </CardContent>
                     </Card>

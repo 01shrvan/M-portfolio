@@ -11,9 +11,9 @@
                             Passionate & Versatile Web Developer Who Loves to Build
                         </h1>
                         <p className="mt-4 text-muted-foreground lg:text-lg">
-                            I am a software engineer with a strong passion for crafting efficient, scalable, and user-friendly web applications.
+                            I am a software engineer with a strong passion for crafting efficient, scalable and user-friendly web applications.
                             With experience in modern technologies and frameworks, I strive to build intuitive and high-performing solutions that
-                            solve real-world problems. My goal is to create meaningful digital experiences that leave a lasting impact.
+                            solve real-world problems. My goal is to create meaningful digital experiences that leave a lasting impact
                         </p>
 
                         <a
