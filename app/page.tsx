@@ -1,33 +1,25 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Instagram, Twitter, Linkedin, Github } from "lucide-react"
+import { ArrowUpRight, Twitter, Linkedin, Github } from "lucide-react"
 
 export default function Home() {
-  // Social media links
   const socialMedia = [
     {
       id: 1,
-      name: "Instagram",
-      username: "@juxt.shrvan",
-      link: "https://www.instagram.com/juxt.shrvan?igsh=MW91aW9tcDc5ZnhnYg==",
-      icon: Instagram
-    },
-    {
-      id: 2,
       name: "Twitter",
       username: "@01shrvan",
       link: "https://x.com/01shrvan",
       icon: Twitter
     },
     {
-      id: 3,
+      id: 2,
       name: "Linkedin",
       username: "@shrvanbenke",
       link: "https://www.linkedin.com/in/shrvanbenke/",
       icon: Linkedin
     },
     {
-      id: 4,
+      id: 3,
       name: "Github",
       username: "@shrvanbenke",
       link: "https://github.com/shrvanbenke",
@@ -35,35 +27,33 @@ export default function Home() {
     }
   ]
 
-  // Sample projects with more details
   const projects = [
     {
       id: 1,
-      name: "Project Alpha",
-      description: "Full-stack web application with advanced features",
-      link: "#",
-      tags: ["React", "Node.js", "MongoDB"]
+      name: "Terminal Based Portfolio",
+      description: "Created a terminal-based portfolio that includes real-time greetings, providing users with a personalized and interactive experience based on the time of day",
+      link: "https://shrvan-benke.vercel.app/",
+      tags: ["React", "Nextjs", "TypeScript"]
     },
     {
       id: 2,
-      name: "Project Beta",
-      description: "Mobile-first responsive design solution",
-      link: "#",
-      tags: ["Next.js", "Tailwind", "TypeScript"]
+      name: "Align Network",
+      description: " A thought-based matchmaking platform that fosters meaningful connections",
+      link: "https://getalign.01shrvan.tech/",
+      tags: ["Next.js", "Tailwind", "TypeScript", "tRPC", "AI Models", "Discord.js"]
     },
     {
       id: 3,
-      name: "Project Gamma",
-      description: "AI-powered data visualization platform",
-      link: "#",
-      tags: ["Python", "React", "Machine Learning"]
+      name: "Ai Chatbot Interface",
+      description: "Developed a chatbot interface as part of my internship work",
+      link: "https://dreamor.01shrvan.tech/",
+      tags: ["Monorepo", "React", "NextJs"]
     }
   ]
 
   return (
     <main className="min-h-screen bg-black p-4 md:p-6 lg:p-8 overflow-x-hidden">
       <div className="max-w-7xl mx-auto w-full">
-        {/* Header */}
         <div className="bg-[#e6dfd1] rounded-xl p-4 md:p-6 flex flex-col md:flex-row justify-between items-center mb-4">
           <h1 className="text-xl font-bold text-black mb-4 md:mb-0">01SHRVAN</h1>
           <div className="flex flex-wrap justify-center gap-4">
@@ -79,11 +69,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-          {/* Intro and Main Content */}
           <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-            {/* Intro Section */}
             <div className="col-span-full bg-[#e6dfd1] rounded-xl p-6 md:p-8">
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Hey, I'm Shrvan</h2>
               <p className="text-xl font-medium text-black/80 mb-6">
@@ -93,7 +80,6 @@ export default function Home() {
                 Passionate about crafting intuitive, high-performance web applications that merge design precision with
                 flawless functionality. Let's build something impactful together!
               </p>
-              {/* Social Media Links */}
               <div className="flex flex-wrap items-center gap-4">
                 {socialMedia.map((social) => (
                   <Link
@@ -109,7 +95,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Profile Image */}
             <div className="bg-[#e6dfd1] rounded-xl overflow-hidden">
               <div className="relative aspect-square w-full">
                 <Image
@@ -121,7 +106,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* About Section */}
             <div className="bg-[#e6dfd1] rounded-xl p-6">
               <p className="text-black/80">
                 I am a software engineer with a strong passion for crafting efficient, scalable and user-friendly web
@@ -130,7 +114,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Contact Section */}
             <div className="col-span-full bg-[#5c5c4f] rounded-xl p-6 flex flex-col justify-between">
               <div>
                 <h3 className="text-white/80 mb-2">Have a Question?</h3>
@@ -152,7 +135,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Projects Section */}
           <div className="bg-[#e6dfd1] rounded-xl p-6 w-full">
             <h2 className="text-xl font-bold text-black mb-4">Projects</h2>
             <div className="space-y-4">
