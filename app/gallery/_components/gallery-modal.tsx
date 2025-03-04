@@ -62,7 +62,7 @@ export function GalleryModal({
                                 fill
                                 className="object-contain"
                                 priority
-                                sizes="(max-width: 768px) 100vw, 50vw"
+                                sizes="(max-inline-size: 768px) 100vw, 50vw"
                             />
                         </div>
                         {hasNext && (
