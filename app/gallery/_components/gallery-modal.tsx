@@ -1,11 +1,11 @@
 "use client"
 
-import React from 'react';
-import Image from 'next/image';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { format } from 'date-fns';
-import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
-import type { GalleryItem } from '@/app/lib/galleryItem';
+import React from 'react'
+import Image from 'next/image'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
+import { format } from 'date-fns'
+import { Calendar, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import type { GalleryItem } from '@/app/lib/galleryItem'
 
 interface GalleryModalProps {
     isOpen: boolean;
@@ -30,22 +30,32 @@ export function GalleryModal({
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="max-w-6xl w-[95vw] h-[90vh] p-0 overflow-hidden">
+            <DialogContent className="max-w-6xl w-[95vw] h-[90vh] p-0 overflow-hidden bg-[#e6dfd1]">
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 z-50 p-2 rounded-full 
+                               bg-black/10 hover:bg-black/20 transition-colors"
+                >
+                    <X className="w-6 h-6 text-black" />
+                </button>
+
                 <div className="grid md:grid-cols-2 h-full">
                     {/* Image Section */}
-                    <div className="relative bg-black flex items-center h-[40vh] md:h-full">
+                    <div className="relative bg-black/10 flex items-center justify-center h-[40vh] md:h-full">
                         {hasPrev && (
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     onPrev?.();
                                 }}
-                                className="absolute left-4 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                                className="absolute left-4 z-10 p-2 rounded-full 
+                                           bg-black/10 text-black hover:bg-black/20 
+                                           transition-colors"
                             >
                                 <ChevronLeft className="w-6 h-6" />
                             </button>
                         )}
-                        <div className="relative w-full h-full">
+                        <div className="relative w-full h-full max-w-full max-h-full">
                             <Image
                                 src={item.imageUrl}
                                 alt={item.title}
@@ -61,7 +71,9 @@ export function GalleryModal({
                                     e.stopPropagation();
                                     onNext?.();
                                 }}
-                                className="absolute right-4 z-10 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                                className="absolute right-4 z-10 p-2 rounded-full 
+                                           bg-black/10 text-black hover:bg-black/20 
+                                           transition-colors"
                             >
                                 <ChevronRight className="w-6 h-6" />
                             </button>
@@ -69,26 +81,24 @@ export function GalleryModal({
                     </div>
 
                     {/* Description Section */}
-                    <div className="relative h-[50vh] md:h-full">
-                        <div className="absolute inset-0 overflow-y-auto">
-                            <div className="p-6">
-                                <h2 className="text-2xl font-semibold">{item.title}</h2>
-                                <div className="flex items-center gap-2 mt-3 text-muted-foreground">
-                                    <Calendar className="w-4 h-4" />
-                                    <span className="text-sm">
-                                        {format(new Date(item.date), "MMMM d, yyyy")}
-                                    </span>
-                                </div>
-                                <div className="mt-6 prose dark:prose-invert max-w-none">
-                                    <p className="leading-relaxed whitespace-pre-line">
-                                        {item.story}
-                                    </p>
-                                </div>
+                    <div className="relative h-[50vh] md:h-full overflow-y-auto">
+                        <div className="p-6 space-y-4">
+                            <h2 className="text-2xl font-semibold text-black">{item.title}</h2>
+                            <div className="flex items-center gap-2 text-black/70">
+                                <Calendar className="w-4 h-4" />
+                                <span className="text-sm">
+                                    {format(new Date(item.date), "MMMM d, yyyy")}
+                                </span>
                             </div>
+                            {item.story && (
+                                <p className="text-black/80 leading-relaxed whitespace-pre-line">
+                                    {item.story}
+                                </p>
+                            )}
                         </div>
                     </div>
                 </div>
             </DialogContent>
         </Dialog>
-    );
+    )
 }

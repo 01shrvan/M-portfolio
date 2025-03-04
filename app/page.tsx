@@ -37,23 +37,23 @@ export default function Home() {
 
   // Sample projects with more details
   const projects = [
-    { 
-      id: 1, 
-      name: "Project Alpha", 
+    {
+      id: 1,
+      name: "Project Alpha",
       description: "Full-stack web application with advanced features",
       link: "#",
       tags: ["React", "Node.js", "MongoDB"]
     },
-    { 
-      id: 2, 
-      name: "Project Beta", 
+    {
+      id: 2,
+      name: "Project Beta",
       description: "Mobile-first responsive design solution",
       link: "#",
       tags: ["Next.js", "Tailwind", "TypeScript"]
     },
-    { 
-      id: 3, 
-      name: "Project Gamma", 
+    {
+      id: 3,
+      name: "Project Gamma",
       description: "AI-powered data visualization platform",
       link: "#",
       tags: ["Python", "React", "Machine Learning"]
@@ -61,28 +61,28 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen bg-black p-4 md:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-black p-4 md:p-6 lg:p-8 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto w-full">
         {/* Header */}
-        <div className="col-span-full bg-[#e6dfd1] rounded-xl p-4 md:p-6 flex flex-col md:flex-row justify-between items-center mb-4">
+        <div className="bg-[#e6dfd1] rounded-xl p-4 md:p-6 flex flex-col md:flex-row justify-between items-center mb-4">
           <h1 className="text-xl font-bold text-black mb-4 md:mb-0">01SHRVAN</h1>
-          <div className="flex gap-6">
-            <Link href="/projects" className="text-black hover:text-black/70">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="/projects" className="text-black hover:text-black/70 transition-colors">
               PROJECTS
             </Link>
-            <Link href="/about" className="text-black hover:text-black/70">
+            <Link href="/about" className="text-black hover:text-black/70 transition-colors">
               ABOUT
             </Link>
-            <Link href="/contact" className="text-black hover:text-black/70">
+            <Link href="/contact" className="text-black hover:text-black/70 transition-colors">
               CONTACT
             </Link>
           </div>
         </div>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
           {/* Intro and Main Content */}
-          <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
             {/* Intro Section */}
             <div className="col-span-full bg-[#e6dfd1] rounded-xl p-6 md:p-8">
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Hey, I'm Shrvan</h2>
@@ -94,12 +94,12 @@ export default function Home() {
                 flawless functionality. Let's build something impactful together!
               </p>
               {/* Social Media Links */}
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap items-center gap-4">
                 {socialMedia.map((social) => (
-                  <Link 
-                    key={social.id} 
-                    href={social.link} 
-                    target="_blank" 
+                  <Link
+                    key={social.id}
+                    href={social.link}
+                    target="_blank"
                     className="text-black/70 hover:text-black transition-colors"
                     aria-label={`${social.name} Profile`}
                   >
@@ -111,12 +111,12 @@ export default function Home() {
 
             {/* Profile Image */}
             <div className="bg-[#e6dfd1] rounded-xl overflow-hidden">
-              <div className="relative h-full min-h-[250px] w-full">
-                <Image 
-                  src="/waiting.png" 
-                  alt="Profile illustration" 
-                  fill 
-                  className="object-cover" 
+              <div className="relative aspect-square w-full">
+                <Image
+                  src="/waiting.png"
+                  alt="Profile illustration"
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -137,11 +137,11 @@ export default function Home() {
               </div>
               <div className="mt-auto">
                 <h2 className="text-2xl font-bold text-white mb-4">Contact Me</h2>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   {socialMedia.map((social) => (
-                    <Link 
-                      key={social.id} 
-                      href={social.link} 
+                    <Link
+                      key={social.id}
+                      href={social.link}
                       className="text-white hover:text-white/70"
                     >
                       {social.name.toUpperCase()}
@@ -153,15 +153,17 @@ export default function Home() {
           </div>
 
           {/* Projects Section */}
-          <div className="bg-[#e6dfd1] rounded-xl p-6">
+          <div className="bg-[#e6dfd1] rounded-xl p-6 w-full">
             <h2 className="text-xl font-bold text-black mb-4">Projects</h2>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {projects.map((project, index) => (
-                <div 
-                  key={project.id} 
-                  className={index !== projects.length - 1 ? "border-b border-black/10 pb-4" : ""}
+                <div
+                  key={project.id}
+                  className={`w-full ${index !== projects.length - 1 ? "border-b border-black/10 pb-4" : ""}`}
                 >
-                  {index === 0 && <div className="w-full h-24 bg-black/10 rounded-lg mb-3"></div>}
+                  {index === 0 && (
+                    <div className="w-full h-24 bg-black/10 rounded-lg mb-3"></div>
+                  )}
                   <Link href={project.link} className="block">
                     <h3 className="text-lg font-medium text-black">{project.name}</h3>
                     <p className="text-black/70 text-sm">{project.description}</p>

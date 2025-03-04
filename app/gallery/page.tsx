@@ -1,6 +1,7 @@
 import { client } from "../lib/sanity"
 import type { GalleryItem } from "@/app/lib/galleryItem"
 import { GalleryGrid } from "./_components/gallery-grid"
+import Link from "next/link"
 
 async function getData() {
     const query = `*[_type == "gallery"] | order(date desc) {
@@ -24,18 +25,18 @@ export default async function GalleryPage() {
         <div className="min-h-screen bg-black p-4 md:p-6 lg:p-8">
             <div className="max-w-7xl mx-auto grid grid-cols-1 gap-4">
                 {/* Header */}
-                <div className="col-span-full bg-[#e6dfd1] rounded-xl p-4 md:p-6 flex justify-between items-center">
-                    <h1 className="text-xl font-bold text-black">01SHRVAN</h1>
-                    <div className="flex gap-6">
-                        <a href="/" className="text-black hover:text-black/70">
+                <div className="col-span-full bg-[#e6dfd1] rounded-xl p-4 md:p-6 flex flex-col md:flex-row justify-between items-center">
+                    <h1 className="text-xl font-bold text-black mb-4 md:mb-0">01SHRVAN</h1>
+                    <div className="flex flex-wrap justify-center gap-4">
+                        <Link href="/" className="text-black hover:text-black/70 transition-colors">
                             HOME
-                        </a>
-                        <a href="/projects" className="text-black hover:text-black/70">
+                        </Link>
+                        <Link href="/projects" className="text-black hover:text-black/70 transition-colors">
                             PROJECTS
-                        </a>
-                        <a href="/gallery" className="text-black hover:text-black/70 font-medium">
+                        </Link>
+                        <Link href="/gallery" className="text-black hover:text-black/70 font-medium transition-colors">
                             GALLERY
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -53,4 +54,3 @@ export default async function GalleryPage() {
         </div>
     )
 }
-
