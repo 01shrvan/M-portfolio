@@ -1,79 +1,58 @@
 "use client"
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { format } from 'date-fns';
-import type { GalleryItem } from '@/app/lib/galleryItem';
-import { GalleryModal } from './gallery-modal';
+import Image from "next/image"
+import { useState } from "react"
+import type { GalleryItem } from "@/app/lib/galleryItem"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { format } from "date-fns"
 
-interface GalleryGridProps {
-    items: GalleryItem[];
-}
+export function GalleryGrid({ items }: { items: GalleryItem[] }) {
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null)
 
-export function GalleryGrid({ items }: GalleryGridProps) {
-    const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
-    const [selectedIndex, setSelectedIndex] = useState<number>(0);
-
-    const handleItemClick = (item: GalleryItem, index: number) => {
-        setSelectedItem(item);
-        setSelectedIndex(index);
-    };
-
-    const handleNextItem = () => {
-        if (selectedIndex < items.length - 1) {
-            setSelectedItem(items[selectedIndex + 1]);
-            setSelectedIndex(selectedIndex + 1);
-        }
-    };
-
-    const handlePrevItem = () => {
-        if (selectedIndex > 0) {
-            setSelectedItem(items[selectedIndex - 1]);
-            setSelectedIndex(selectedIndex - 1);
-        }
-    };
-
-    return (
-        <>
-            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
-                {items.map((item, index) => (
-                    <div
-                        key={item._id}
-                        className="relative break-inside-avoid block w-full mb-4 cursor-pointer group"
-                        onClick={() => handleItemClick(item, index)}
-                    >
-                        <div className="relative rounded-xl overflow-hidden">
-                            <Image
-                                src={item.imageUrl}
-                                alt={item.title}
-                                width={800}
-                                height={item.imageAspect ? 800 / item.imageAspect : 800}
-                                className="w-full h-auto object-cover transition-all duration-300 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="absolute bottom-0 p-4 w-full">
-                                    <h3 className="text-white font-medium text-lg line-clamp-2">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-white/80 text-sm mt-1">
-                                        {format(new Date(item.date), 'MMMM d, yyyy')}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+  return (
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {items.map((item) => (
+          <div
+            key={item._id}
+            className="cursor-pointer rounded-lg overflow-hidden bg-black/5 hover:opacity-90 transition-opacity"
+            onClick={() => setSelectedItem(item)}
+          >
+            <div className="aspect-square relative">
+              <Image src={item.imageUrl || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
             </div>
+            <div className="p-3">
+              <h3 className="font-medium text-black">{item.title}</h3>
+              <p className="text-sm text-black/70">{item.date ? format(new Date(item.date), "MMMM d, yyyy") : ""}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-            <GalleryModal
-                isOpen={!!selectedItem}
-                onClose={() => setSelectedItem(null)}
-                item={selectedItem}
-                onNext={handleNextItem}
-                onPrev={handlePrevItem}
-                hasNext={selectedIndex < items.length - 1}
-                hasPrev={selectedIndex > 0}
-            />
-        </>
-    );
+      <Dialog open={!!selectedItem} onOpenChange={(open) => !open && setSelectedItem(null)}>
+        <DialogContent className="max-w-3xl bg-[#e6dfd1] text-black">
+          <DialogHeader>
+            <DialogTitle>{selectedItem?.title}</DialogTitle>
+            <DialogDescription className="text-black/70">
+              {selectedItem?.date ? format(new Date(selectedItem.date), "MMMM d, yyyy") : ""}
+            </DialogDescription>
+          </DialogHeader>
+          {selectedItem && (
+            <div className="grid gap-4">
+              <div className="relative aspect-video overflow-hidden rounded-lg">
+                <Image
+                  src={selectedItem.imageUrl || "/placeholder.svg"}
+                  alt={selectedItem.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {selectedItem.story && <p className="text-black/80">{selectedItem.story}</p>}
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
+  )
 }
+

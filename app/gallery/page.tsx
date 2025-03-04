@@ -21,16 +21,36 @@ export default async function GalleryPage() {
     const data: GalleryItem[] = await getData()
 
     return (
-        <div className="min-h-screen bg-background">
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="py-8 md:py-12">
-                    <h1 className="text-4xl font-bold tracking-tight">Gallery!</h1>
-                    <p className="mt-2 text-lg text-muted-foreground">
-                        A collection of moments and memories
-                    </p>
+        <div className="min-h-screen bg-black p-4 md:p-6 lg:p-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 gap-4">
+                {/* Header */}
+                <div className="col-span-full bg-[#e6dfd1] rounded-xl p-4 md:p-6 flex justify-between items-center">
+                    <h1 className="text-xl font-bold text-black">01SHRVAN</h1>
+                    <div className="flex gap-6">
+                        <a href="/" className="text-black hover:text-black/70">
+                            HOME
+                        </a>
+                        <a href="/projects" className="text-black hover:text-black/70">
+                            PROJECTS
+                        </a>
+                        <a href="/gallery" className="text-black hover:text-black/70 font-medium">
+                            GALLERY
+                        </a>
+                    </div>
                 </div>
-                <GalleryGrid items={data} />
-            </section>
+
+                {/* Gallery Header */}
+                <div className="col-span-full bg-[#e6dfd1] rounded-xl p-6">
+                    <h1 className="text-3xl font-bold text-black">Gallery!</h1>
+                    <p className="mt-2 text-lg text-black/70">A collection of moments and memories</p>
+                </div>
+
+                {/* Gallery Grid */}
+                <div className="col-span-full bg-[#e6dfd1] rounded-xl p-6">
+                    <GalleryGrid items={data} />
+                </div>
+            </div>
         </div>
     )
 }
+
