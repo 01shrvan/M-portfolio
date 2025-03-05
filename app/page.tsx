@@ -58,13 +58,13 @@ export default function Home() {
           <h1 className="text-xl font-bold text-black mb-4 md:mb-0">01SHRVAN</h1>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/projects" className="text-black hover:text-black/70 transition-colors">
+              HOME
+            </Link>
+            <Link href="/projects" className="text-black hover:text-black/70 transition-colors">
               PROJECTS
             </Link>
-            <Link href="/about" className="text-black hover:text-black/70 transition-colors">
-              ABOUT
-            </Link>
-            <Link href="/contact" className="text-black hover:text-black/70 transition-colors">
-              CONTACT
+            <Link href="/gallery" className="text-black hover:text-black/70 transition-colors">
+              GALLERY
             </Link>
           </div>
         </div>
