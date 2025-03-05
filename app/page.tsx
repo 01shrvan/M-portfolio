@@ -57,7 +57,7 @@ export default function Home() {
         <div className="bg-[#e6dfd1] rounded-xl p-4 md:p-6 flex flex-col md:flex-row justify-between items-center mb-4">
           <h1 className="text-xl font-bold text-black mb-4 md:mb-0">01SHRVAN</h1>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/projects" className="text-black hover:text-black/70 transition-colors">
+            <Link href="/projects" className="text-black hover:text-black/70 font-medium transition-colors">
               HOME
             </Link>
             <Link href="/projects" className="text-black hover:text-black/70 transition-colors">
