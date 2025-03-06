@@ -21,8 +21,8 @@ export default function Home() {
     {
       id: 3,
       name: "Github",
-      username: "@shrvanbenke",
-      link: "https://github.com/shrvanbenke",
+      username: "@01shrvan",
+      link: "https://github.com/01shrvan",
       icon: Github
     }
   ]
